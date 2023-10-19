@@ -1,0 +1,7 @@
+node_modules
+dist
+.vscode
+.env
+start-with-build.sh
+start.sh
+tsconfig.json

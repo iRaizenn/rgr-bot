@@ -1,0 +1,25 @@
+{
+	"name": "rgr-bot",
+	"version": "1.0.0",
+	"description": "discord.js bot written in typescript for raizen's and ginny's realm",
+	"main": "dist/main.js",
+	"scripts": {
+		"test": "tsx --watch main.ts",
+		"build": "npx tsc",
+		"start": "node ."
+	},
+	"author": "iraizen",
+	"license": "ISC",
+	"dependencies": {
+		"captcha-canvas": "^3.2.1",
+		"console-table-printer": "^2.11.2",
+		"discord.js": "^14.13.0",
+		"dotenv": "^16.3.1",
+		"mongoose": "^6.0.12"
+	},
+	"devDependencies": {
+		"@types/node": "^20.8.6",
+		"tsx": "^3.13.0",
+		"typescript": "^5.2.2"
+	}
+}
