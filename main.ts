@@ -1,10 +1,17 @@
-import { Client as DiscordClient, Collection, Partials } from 'discord.js';
+import {
+	Client as DiscordClient,
+	Collection,
+	Partials,
+	GatewayIntentBits,
+} from 'discord.js';
 import 'dotenv/config';
 
 import loadEvents from './functions/loadEvents';
 import loadCommands from './functions/loadCommands';
 
 const { Channel, GuildMember, Message, User } = Partials;
+const { Guilds, GuildMembers, GuildMessages, MessageContent } =
+	GatewayIntentBits;
 
 class CustomClient extends DiscordClient {
 	commands: Collection<string, any> = new Collection();
@@ -13,7 +20,7 @@ class CustomClient extends DiscordClient {
 export default CustomClient;
 
 const client = new CustomClient({
-	intents: ['Guilds', 'GuildMembers', 'GuildMessages', 'MessageContent'],
+	intents: [Guilds, GuildMembers, GuildMessages, MessageContent],
 	partials: [Channel, GuildMember, Message, User],
 });
 
