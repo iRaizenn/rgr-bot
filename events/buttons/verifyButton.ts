@@ -13,6 +13,7 @@ import {
 	TextInputBuilder,
 	TextInputStyle,
 	InteractionType,
+	Message,
 } from 'discord.js';
 import { Captcha } from 'captcha-canvas';
 const wait = require('node:timers/promises').setTimeout;
@@ -110,22 +111,32 @@ export default {
 				);
 
 				if (captchaText === inputText) {
-					await wait(500);
-					await int.reply({
-						content:
-							'You have successfully completed the captcha. Please wait while we unlock the channels for you.',
-						ephemeral: true,
-					});
+					const initReply = await int
+						.reply({
+							content:
+								'You have successfully completed the captcha. Please wait while we unlock the channels for you.',
+							ephemeral: true,
+						})
+						.catch(() => {
+							return;
+						});
 					await role.add('910848061855629352');
 					await wait(1000);
 					await role.remove('1061313455182839829');
-					return int.editReply({
+					return (initReply as unknown as Message).edit({
 						content:
 							"All the channels have been unlocked! Enjoy your stay at Raizen's and Ginny's Realm.",
 					});
 				} else {
-					await int.reply({ content: '_ _', ephemeral: true });
-					return int.editReply({
+					const emptyReply = await int
+						.reply({
+							content: '_ _',
+							ephemeral: true,
+						})
+						.catch(() => {
+							return;
+						});
+					return (emptyReply as unknown as Message).edit({
 						embeds: [
 							new EmbedBuilder()
 								.setTitle('Captcha failed.')
