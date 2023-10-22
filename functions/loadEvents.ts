@@ -50,7 +50,7 @@ function loadEvents(client: Client) {
 						event.execute(...args, client),
 					);
 			}
-			table.addRow({ name: event.name, eventStatus: 'loaded' });
+			table.addRow({ name: file, eventStatus: 'loaded' });
 			continue;
 		}
 	}
