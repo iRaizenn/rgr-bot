@@ -7,7 +7,7 @@ function loadCommands(client: CustomClient) {
 		columns: [
 			{
 				name: 'name',
-				title: 'Event Name',
+				title: 'Command Name',
 				alignment: 'left',
 				color: 'white',
 			},
