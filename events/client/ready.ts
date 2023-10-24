@@ -1,4 +1,4 @@
-import { Client } from 'discord.js';
+import { Client, ChannelType } from 'discord.js';
 import { connect } from 'mongoose';
 import 'dotenv/config';
 
